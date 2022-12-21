@@ -1,0 +1,69 @@
+library(readr)
+project327<-read_csv("Final21-22_Avg_ClassSize_School.csv")
+
+#Mil4
+
+hist(Final21_22_Avg_ClassSize_School$`Average Class Size`, xlab = "Average Class Size", main = "Average Class Size")
+
+counts <- table(Final21_22_Avg_ClassSize_School$`Program Type`)
+barplot(counts, main="Program Type",
+        xlab="Program Type")
+
+hist(Final21_22_Avg_ClassSize_School$`Number of Students`, xlab = "# of students", main = "Number of Students")
+
+hist(Final21_22_Avg_ClassSize_School$`Number of Classes`, xlab = "# of classes", main = "Number of Classes")
+
+
+
+summary(Final21_22_Avg_ClassSize_School)
+
+
+
+
+#Mil6
+
+mean(Final21_22_Avg_ClassSize_School$`Average Class Size`)
+median(Final21_22_Avg_ClassSize_School$`Average Class Size`)
+var(Final21_22_Avg_ClassSize_School$`Average Class Size`)
+sd(Final21_22_Avg_ClassSize_School$`Average Class Size`)
+
+mean(Final21_22_Avg_ClassSize_School$`Number of Students`)
+median(Final21_22_Avg_ClassSize_School$`Number of Students`)
+var(Final21_22_Avg_ClassSize_School$`Number of Students`)
+sd(Final21_22_Avg_ClassSize_School$`Number of Students`)
+
+mean(Final21_22_Avg_ClassSize_School$`Number of Classes`)
+median(Final21_22_Avg_ClassSize_School$`Number of Classes`)
+var(Final21_22_Avg_ClassSize_School$`Number of Classes`)
+sd(Final21_22_Avg_ClassSize_School$`Number of Classes`)
+
+
+#Mil7
+
+plot(Final21_22_Avg_ClassSize_School$`Average Class Size`,Final21_22_Avg_ClassSize_School$`Number of Students`,
+     main = "Average Class Size v. Number of Students",
+     
+     xlab = "Average Class Size",
+     
+     ylab = "Number of Students",
+     
+     xlim=c(0,30),
+     
+     ylim=c(0,80))
+
+abline(lm(Final21_22_Avg_ClassSize_School$`Number of Students` ~ Final21_22_Avg_ClassSize_School$`Average Class Size`), col = "red")
+
+#Mil8
+
+mean(Final21_22_Avg_ClassSize_School$`Average Class Size`)+((sqrt(var(Final21_22_Avg_ClassSize_School$`Average Class Size`)))/sqrt(12445))*qt(0.95,12444)
+mean(Final21_22_Avg_ClassSize_School$`Average Class Size`)-((sqrt(var(Final21_22_Avg_ClassSize_School$`Average Class Size`)))/sqrt(12445))*qt(0.95,12444)
+
+mean(Final21_22_Avg_ClassSize_School$`Number of Students`)+((sqrt(var(Final21_22_Avg_ClassSize_School$`Number of Students`)))/sqrt(12445))*qt(0.95,12444)
+mean(Final21_22_Avg_ClassSize_School$`Number of Students`)-((sqrt(var(Final21_22_Avg_ClassSize_School$`Number of Students`)))/sqrt(12445))*qt(0.95,12444)
+
+
+#Mil9
+
+lm(Final21_22_Avg_ClassSize_School$`Number of Students` ~ Final21_22_Avg_ClassSize_School$`Average Class Size`)
+
+# line: y = -3.963 + 2.190x
